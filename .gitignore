@@ -1,0 +1,14 @@
+# Object files
+*.o
+
+# Executables
+*.exe
+*.out
+*.dll
+*.so
+
+# Debug files
+*.dSYM/
+
+# Build folders
+build/
