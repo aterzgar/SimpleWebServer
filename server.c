@@ -13,35 +13,34 @@
 char *handle_http_req(const char *src){
 	// Check if the request method is GET (for simplicity, we're only handling GET requests)
 	if(strncmp(src, "GET", 3) == 0) {
-		// Prepare the HTTP response 
+	// Prepare the HTTP response 
 		char *response =
 			"HTTP/1.1 200 OK\r\n"
 			"Content-Type: text/html\r\n"
 			"Content-Length: 46\r\n"
 			"\r\n"
 			"<html><body><h1>Hello, World!</h1></body></html>"; 
-		// Allocate memory for the response (ensure to free this in the calling function to avoid memory leaks)
+	// Allocate memory for the response (ensure to free this in the calling function to avoid memory leaks)
 		char *resp = malloc(strlen(response) + 1); // +1 for the null terminator
 		if (resp != NULL) {
 			strcpy(resp, response);
 		}
 		return resp;
-}	
+	}
 	else {
-		// For non-get requests
+	// For non-get requests
 		char *response =
-            "HTTP/1.1 405 Method Not Allowed\r\n"
-            "Content-Type: text/html\r\n"
-            "Content-Length: 40\r\n"
-            "\r\n"
-            "<html><body><h1>Method Not Allowed</h1></body></html>";
-        
-        char *resp = malloc(strlen(response) + 1); // +1 for the null terminator
-        if (resp != NULL) {
-            strcpy(resp, response);
-        }
-        return resp;
-    }
+            		"HTTP/1.1 405 Method Not Allowed\r\n"
+            		"Content-Type: text/html\r\n"
+            		"Content-Length: 40\r\n"
+            		"\r\n"
+            		"<html><body><h1>Method Not Allowed</h1></body></html>";
+        	char *resp = malloc(strlen(response) + 1); // +1 for the null terminator
+        	if (resp != NULL) {
+            		strcpy(resp, response);
+        	}
+        	return resp;
+    	}
 }
 
 int main () {
